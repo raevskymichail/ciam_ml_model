@@ -34,7 +34,7 @@ matplotlib.rcParams['axes.labelsize'] = 14
 
 class surrogate_model():
 	def __init__(self, dataset):
-		if not all([item in dataset.columns for item in ['Tk', 'Tg', 'n', 'Damage']]):
+		if not all([item in dataset.columns for item in ['Tg', 'Tk', 'n', 'Damage']]):
 			raise ValueError("Input DataFrame have to contain columns named: Tk, Tg, n, damage")
 		else:
 			self.data = dataset
@@ -291,5 +291,4 @@ def xgboost_model(eval_set):
 	                                  param_distributions = strong_model_param_grid,
 	                                  n_iter=100, cv=3, verbose=0)
 	return strong_model
-
 
